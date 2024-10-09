@@ -15,4 +15,10 @@
     .container-cards-carrusel{
         @apply  flex flex-col  flex-wrap overflow-y-auto w-full h-full relative
     }
+    .buttom-left-carrusel{
+        @apply absolute left-3 z-10 p-1 md:p-2 text-xl md:text-3xl font-bold text-white bg-black/50 border rounded-lg hover:bg-[#2ECC71]/50
+    }
+    .buttom-right-carrusel{
+        @apply absolute right-3 p-1 md:p-2 text-xl md:text-3xl font-bold text-white bg-black/50 border rounded-lg hover:bg-[#2ECC71]/50
+    }
 }

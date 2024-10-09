@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .conteiner-logo-footer{
+        @apply flex items-center w-full h-4 gap-1
+    }
+    .title-footer{
+        @apply text-white text-xl
+    }
+    .footer-section{
+        @apply m-[10px] max-w-[300px]
+    }
+}

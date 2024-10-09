@@ -44,7 +44,7 @@ const Carrusel = ({ slider }) => {
     };
   
     const handlerClickNext = () => {
-      setClickBack(b => b = false)
+      setClickBack(b => b = false);
       setClickNext(n => n = true);
       handlerPaginationForward();
       setTime(t => t = 0);
@@ -59,13 +59,13 @@ const Carrusel = ({ slider }) => {
   
     useEffect(() => {
       const timer = setTimeout(() => {
-        setTime(prevTime => prevTime + 1);
-        if (clickBack || clickNext) {
-          setClickNext(n => n = false);
-          setClickBack(b => b = false);
-        }
+        setClickNext(n => n = false);
+        setClickBack(b => b = false);
         handlerPaginationForward();
-    }, 19000);
+        setTime(prevTime => prevTime + 1);
+    }, 9000);
+
+    return () => clearTimeout(timer);
     
     }, [time]);
   
@@ -73,13 +73,13 @@ const Carrusel = ({ slider }) => {
   
     return (
       <div className="container-main">
-        <button className="absolute left-3 z-10 p-2 text-3xl font-bold text-white bg-black/50 border rounded-lg hover:bg-[#2ECC71]/50" onClick={handlerClickBack}>
+        <button className="buttom-left-carrusel " onClick={handlerClickBack}>
         {'<'}
         </button>
         <div className="container-cards-carrusel no-scrollbar">
           <Transition id={random} currentObjet={oldPage} nextObjet={slider[currentPage]} clickNext={clickNext} clickBack={clickBack} />
         </div>
-        <button className="absolute right-3 p-2 text-3xl font-bold text-white bg-black/50 border rounded-lg hover:bg-[#2ECC71]/50" onClick={handlerClickNext}>{">"}</button>
+        <button className="buttom-right-carrusel " onClick={handlerClickNext}>{">"}</button>
       </div>
     );
   };

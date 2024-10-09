@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .container-header{
+        @apply sticky top-0 z-50 grid grid-cols-2 items-center  min-h-[15vh] bg-[#00AEEF]
+    }
+    .drop-down-container{
+        @apply bg-[#00AEEF] absolute top-0 right-0 z-20 w-[30vw] min-h-[10vh] flex flex-col
+    }
+    .burger-container{
+        @apply w-full h-full flex justify-end items-center
+    }
+}

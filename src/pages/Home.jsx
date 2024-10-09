@@ -1,27 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Carrusel } from "../components/carrusel/carrusel";
 
-const CardAction = ({ info }) => {
-  return (
-    <div className="w-1/2 h-1/2 overflow-hidden relative group">
-      <img
-        src={info.img}
-        className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-300"
-        alt=""
-      />
-    </div>
-  );
-};
-
-const CallToAction = ({ info }) => {
-  return (
-    <div className="w-full h-full flex flex-wrap">
-      {info.map((card, index) => (
-        <CardAction key={index + card.city} info={card} />
-      ))}
-    </div>
-  );
-};
 
 const Welcome = () => {
   return (
@@ -52,37 +31,37 @@ const sliderCarrusel = [
   [
     {
       img: "https://viajes.nationalgeographic.com.es/medio/2021/01/26/templo-de-asakusa_46a4b335_1200x630.jpg",
-      city: "Tokyo, japon",
+      city: "Tokyo, Japan",
     },
     {
       img: "https://www.panavision-tours.com/viajes/bangkok-tailandia/bangkok.jpg",
-      city: "Bangkok, Tailandia",
+      city: "Bangkok, Thailand",
     },
     {
       img: "https://colombianabroad.com/wp-content/uploads/seul-alojamiento-feature-1024x768.jpg",
-      city: "Seul, Corea del Sur",
+      city: "Seoul, South Korea",
     },
     {
       img: "https://drivemefoody.com/wp-content/uploads/china-beijing-forbidden-city-hall-supreme-harmony-close.jpg",
-      city: "Pekin, China",
+      city: "Beijing, China",
     },
   ],
   [
     {
       img: "https://historia.nationalgeographic.com.es/medio/2019/12/11/coliseo-roma_2924b6ae_1280x720.jpg",
-      city: "Roma, Italia",
+      city: "Rome, Italy",
     },
     {
       img: "https://www.spain.info/.content/imagenes/cabeceras-grandes/madrid/calle-gran-via-madrid-s333961043.jpg",
-      city: "Madrid, España",
+      city: "Madrid, Spain",
     },
     {
       img: "https://res.cloudinary.com/lastminute-contenthub/s--3sy466uV--/c_limit,h_999999,w_768/f_auto/q_auto:eco/v1/DAM/Photos/Destinations/Europe/Portugal/Lisbon/lisboa_186440843",
-      city: "Lisboa, Portugal",
+      city: "Lisbon, Portugal",
     },
     {
       img: "https://viajes.nationalgeographic.com.es/medio/2017/02/09/shutterstock-302415089_6b607cdb.jpg",
-      city: "Berlin, Alemania",
+      city: "Berlin, Germany",
     },
   ],
   [
@@ -106,37 +85,18 @@ const sliderCarrusel = [
 ];
 
 const Home = () => {
-  const infoCity = [
-    {
-      img: "https://img.freepik.com/foto-gratis/mercado-bahia-miami_23-2151599511.jpg",
-      city: "Maiami",
-    },
-    {
-      img: "https://mercomillas.com.ar/wp-content/uploads/2023/02/paises-asiaticos-scaled.jpg",
-      city: "Japon",
-    },
-    {
-      img: "https://bogota.gov.co/sites/default/files/2024-02/bogota-inteligente-1.jpg",
-      city: "Bogota",
-    },
-    {
-      img: "https://www.nuriacalvo.com/wp-content/uploads/2024/02/Tres-ciudades-deslumbrantes-tras-el-anochecer-4.jpg",
-      city: "Paris",
-    },
-  ];
 
   return (
     <div className="min-h-[70vh] w-full ">
       <Welcome />
-      <div className=" relative flex flex-col md:flex-row md:items-center w-full h-[85vh] items-center bg-[#00AEEF]">
-          <img src="https://mercomillas.com.ar/wp-content/uploads/2023/02/paises-asiaticos-scaled.jpg" className="absolute top-0 w-full h-full object-cover" alt="" />
+      <div className="relative flex flex-col-reverse md:flex-row md:items-center w-full h-[85vh] items-center bg-gradient-to-b from-indigo-500 to-[#006EAF]">
         <div className="h-[35%] w-full md:w-1/2 md:h-full md:flex md:items-center z-10 mt-4">
-          <h1 className="text-white ms-5 md:text-2xl font-bold bg-black/50">
+          <h1 className="text-white mt-5  mx-4 md:mt-5 md:text-2xl font-bold">
             Dive into the Urban Magic and Discover the Most Fascinating Cities
             in the World! 
             <span>
               <NavLink
-                className={"text-[#FFD700] bg-black/50 mx-2 hover:text-[#FF7F50] hover:bg-[#2ECC71] rounded-lg"}
+                className={"text-[#FFD700]  mx-2 hover:text-[#FF7F50] rounded-lg"}
                 to={"/citys"}
               >
                 Click here
@@ -146,8 +106,8 @@ const Home = () => {
           </h1>
         </div>
         <div className="z-10">
-          <p className="text-2xl text-white text-center bg-black/50">Popular My tineraries</p>
-          <div className="h-[42vh] w-[100vw] md:w-[48vw] md:h-[70vh] relative">
+          <p className="text-2xl text-white text-center ">Popular My tineraries</p>
+          <div className="h-[42vh] w-[100vw] p-3 md:w-[48vw] md:h-[70vh] relative">
             <Carrusel slider={sliderCarrusel} />
           </div>
         </div>
