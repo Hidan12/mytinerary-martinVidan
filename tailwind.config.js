@@ -18,12 +18,18 @@ export default {
         moverigth:{
           '0%': {transform:'translateX(-100%)'},
           '100%':{transform:'translateX(0%)'}
+        },
+        moveDown:{
+          '0%': {top:'-64px', opacity:0},
+          '60%': {opacity:0.1},
+          '100%':{top:'0px', opacity:1}
         }
       },
       animation:{
         moveplain:'moveplain 1s forwards linear',
         moveleft: 'moveleft 1s forwards linear',
         moverigth: 'moverigth 1s forwards linear',
+        moveDown: 'moveDown 0.5s forwards linear'
       }
     },
   },

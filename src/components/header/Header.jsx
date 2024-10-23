@@ -32,13 +32,13 @@ const BurgerMenu = ({handleClickButton})=>{
 const DropdownMenu = ({handleClickButton, login})=>{
     return(
         <div className='drop-down-container'>
-            <NavLink to={"/home"} className={"text-white"} onClick={()=>handleClickButton()}>
+            <NavLink to={"/home"} className={"text-white px-4"} onClick={()=>handleClickButton()}>
                 Home
             </NavLink>
-            <NavLink to={"/citys"} className={"text-white"} onClick={()=>handleClickButton()}>
-                Citys
+            <NavLink to={"/cities"} className={"text-white px-4"} onClick={()=>handleClickButton()}>
+                Cities
             </NavLink>
-            <p className='text-white'>{!login ? "Log in":"Log out"}</p>
+            <p className='text-white px-4'>{!login ? "Log in":"Log out"}</p>
             
         </div>
     )
@@ -96,8 +96,8 @@ const Header = () =>{
                 {
                     windowSize.width < 768 ? <BurgerMenu handleClickButton={handleClickButton}></BurgerMenu> : 
                     <div className='flex justify-end items-center me-2 gap-4'>
-                    <NavLink to={"/home"} className={"text-white hover:bg-[#2ECC71] rounded-lg p-2"}>Home</NavLink>
-                    <NavLink to={"/citys"} className={"me-2 text-white hover:bg-[#2ECC71] rounded-lg p-2"}>Citys</NavLink>
+                    <NavLink to={"/home"} className={"text-white hover:bg-[#068090] rounded-lg p-2"}>Home</NavLink>
+                    <NavLink to={"/cities"} className={"me-2 text-white hover:bg-[#068090] rounded-lg p-2"}>Cities</NavLink>
                     <ButtonLogin login={login}></ButtonLogin>
                 </div>
                 }

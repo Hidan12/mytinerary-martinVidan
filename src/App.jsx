@@ -1,6 +1,7 @@
 import {StandarLayouts} from './layouts/StandarLayouts.jsx'
-import { Citys } from './pages/Citys.jsx'
+import { Cities } from './pages/Cities.jsx'
 import { Home } from './pages/Home.jsx'
+import { Detail } from './pages/Detail.jsx'
 import { NotFound } from './pages/NotFound.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 const router = createBrowserRouter([
@@ -9,7 +10,8 @@ const router = createBrowserRouter([
     children:[
       {path:"/", element:<Home/> },
       {path:"/home", element:<Home/> },
-      {path:"/citys", element:<Citys/> },
+      {path:"/cities", element:<Cities/> },
+      {path: "detail", element:<Detail/>},
       {path:"/*", element:<NotFound/> }
     ]
   }

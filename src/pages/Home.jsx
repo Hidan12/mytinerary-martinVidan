@@ -89,7 +89,7 @@ const Home = () => {
   return (
     <div className="min-h-[70vh] w-full ">
       <Welcome />
-      <div className="relative flex flex-col-reverse md:flex-row md:items-center w-full h-[85vh] items-center bg-gradient-to-b from-indigo-500 to-[#006EAF]">
+      <div className="relative flex flex-col-reverse md:flex-row md:items-center w-full h-[85vh] items-center bg-gradient-to-b from-[#5D3EF0] to-[#D13EF0]">
         <div className="h-[35%] w-full md:w-1/2 md:h-full md:flex md:items-center z-10 mt-4">
           <h1 className="text-white mt-5  mx-4 md:mt-5 md:text-2xl font-bold">
             Dive into the Urban Magic and Discover the Most Fascinating Cities
@@ -97,7 +97,7 @@ const Home = () => {
             <span>
               <NavLink
                 className={"text-[#FFD700]  mx-2 hover:text-[#FF7F50] rounded-lg"}
-                to={"/citys"}
+                to={"/cities"}
               >
                 Click here
               </NavLink>

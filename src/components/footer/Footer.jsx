@@ -14,7 +14,7 @@ const Footer = () => {
               </NavLink>{" "}
             </li>
             <li>
-              <NavLink className={"text-white hover:text-[#FF7F50] pe-2"}>
+              <NavLink to={"/cities"} className={"text-white hover:text-[#FF7F50] pe-2"}>
                 City
               </NavLink>
             </li>
