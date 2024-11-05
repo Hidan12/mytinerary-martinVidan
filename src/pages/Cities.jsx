@@ -41,14 +41,14 @@ const LoadingCard = ()=>{
 
 const Cities = ()=>{
     const {dark} = useSelector(state => state.reducerTheme)
-    const {cities, loading} = useSelector(state => state.cityReducer)
+    const {cities, search, loading} = useSelector(state => state.cityReducer)
     const dispatch = useDispatch()
     
     return(
         <section className={`min-h-[72vh] ${dark ? "bg-black" : "bg-slate-300"}`}>
             <h1 className={`${dark ? "text-white": "text-black"} font-bold text-2xl text-center py-5`}>Cities</h1>
             <div className='flex justify-center items-center '>
-                <input type="text" className='h-[8vh] border text-center md:w-[30vw] border-blue-600 focus:border-blue-800 focus:outline-none focus:border-4 rounded-lg' placeholder='✈ Search City' onChange={(e)=> dispatch(searchCity(e.target.value))} />
+                <input type="text" value={search} className='h-[8vh] border text-center md:w-[30vw] border-blue-600 focus:border-blue-800 focus:outline-none focus:border-4 rounded-lg' placeholder='✈ Search City' onChange={(e)=> dispatch(searchCity(e.target.value))} />
             </div>
             <div className='flex w-full justify-center items-center py-4'>
                 {!loading ?              
