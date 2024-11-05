@@ -9,12 +9,12 @@ const Footer = () => {
           <h2 className="title-footer">Site Map</h2>
           <ul className="flex flex-col">
             <li>
-              <NavLink className={"text-white hover:text-[#FF7F50] pe-2"}>
+              <NavLink to={"/"} className={({ isActive }) => (isActive ? 'text-[#FF7F50] pe-2' : 'text-white hover:text-[#FF7F50] pe-2')}>
                 Home
-              </NavLink>{" "}
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/cities"} className={"text-white hover:text-[#FF7F50] pe-2"}>
+              <NavLink to={"/cities"} className={({ isActive }) => (isActive ? 'text-[#FF7F50] pe-2' : 'text-white hover:text-[#FF7F50] pe-2')}>
                 City
               </NavLink>
             </li>

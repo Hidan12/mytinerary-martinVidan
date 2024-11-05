@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { searchCity } from '../store/actions/cityActions'
 
 
 const Card = ({city})=>{
@@ -9,12 +10,14 @@ const Card = ({city})=>{
         navigate("/detail", {state:city})
     }
     return(
-        <div className='w-full h-[30vh] border border-blue-300 relative overflow-hidden group hover:shadow-red-600 shadow-[-1px_0px_39px_0px]'>
-            <img src={city.imgCity || NoImg} className='w-full h-full object-cover group-hover:scale-125 transition-transform duration-300' alt="" />
-            <p className=' absolute top-2 bg-black/50 text-white p-2 rounded-lg'>📍 {city.cityName}</p>
-            <button className='absolute bottom-2 p-1 text-white rounded-lg bg-blue-800/70 hover:bg-blue-800' onClick={()=> handlerNavigate()}>
-                More info
-            </button>
+        <div className='w-full h-[35vh] border border-blue-300 relative overflow-hidden group hover:shadow-blue-700 hover:shadow-[-1px_0px_39px_0px] hover:border-2 hover:border-blue-700'>
+            <img src={city.imgCity || NoImg} className='w-full rounded-2xl h-full object-cover group-hover:scale-125 transition-transform duration-300' alt="" />
+            <p className=' absolute ms-2 top-2 bg-black/50 text-white p-2 rounded-lg'>📍 {city.cityName}</p>
+            <div className=' absolute bottom-2 w-full flex justify-center'>
+                <button className='p-2 text-white rounded-lg bg-blue-800/70 hover:bg-blue-800' onClick={()=> handlerNavigate()}>
+                    More info
+                </button>
+            </div>
             
         </div>
     )
@@ -37,44 +40,20 @@ const LoadingCard = ()=>{
 
 
 const Cities = ()=>{
-    const [cities, setCities] = useState([])
-    const [search, setSearch] = useState("")
-    const [loading, setLoading] = useState(false)
-
-    useEffect(()=>{
-        const addCities = async ()=>{
-            try {
-                let data = undefined
-                if (search == "") {
-                    data = await fetch("http://localhost:8080/api/city/allCity")
-                }else{
-                    data = await fetch(`http://localhost:8080/api/city/allCity?search=${search}`)
-                }
-                const dataCities = await data.json()
-                setCities(c => c = dataCities)
-                setLoading(l => l = true)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        addCities()
-        
-    },[search])
-
-    const handlerSearch = (e)=>{   
-        setSearch(v => v = e.target.value)
-    }
+    const {dark} = useSelector(state => state.reducerTheme)
+    const {cities, loading} = useSelector(state => state.cityReducer)
+    const dispatch = useDispatch()
     
     return(
-        <section className="min-h-[70vh] bg-gradient-to-b from-[#5D3EF0] to-[#D13EF0]">
-            <h1 className="text-white font-bold text-2xl text-center py-5">Cities</h1>
+        <section className={`min-h-[72vh] ${dark ? "bg-black" : "bg-slate-300"}`}>
+            <h1 className={`${dark ? "text-white": "text-black"} font-bold text-2xl text-center py-5`}>Cities</h1>
             <div className='flex justify-center items-center '>
-                <input type="text" className='h-[8vh] border md:w-[30vw] border-blue-600 rounded-lg' placeholder='✈ Seach' onChange={(e)=> handlerSearch(e)} />
+                <input type="text" className='h-[8vh] border text-center md:w-[30vw] border-blue-600 focus:border-blue-800 focus:outline-none focus:border-4 rounded-lg' placeholder='✈ Search City' onChange={(e)=> dispatch(searchCity(e.target.value))} />
             </div>
             <div className='flex w-full justify-center items-center py-4'>
-                {loading ?              
-                    <div className={`w-[90%] ${cities.length > 0 ? "grid grid-cols-2 md:grid-cols-4 gap-3": "" }`}>
-                        { cities.length > 0 ? cities.cities.map(c => <Card key={c.cityName} city={c}/>)
+                {!loading ?              
+                    <div className={`w-[90%] ${cities.length > 0 ? "grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-5": "" }`}>
+                        { cities.length > 0 ? cities.map(c => <Card key={c.cityName} city={c}/>)
                             : 
                             <p className='text-center font-bold text-2xl text-white'>The city you were looking for was not found</p>
                         

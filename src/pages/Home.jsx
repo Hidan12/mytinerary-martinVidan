@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Carrusel } from "../components/carrusel/carrusel";
-
+import { useSelector } from "react-redux";
 
 const Welcome = () => {
   return (
@@ -85,28 +85,29 @@ const sliderCarrusel = [
 ];
 
 const Home = () => {
+  const {dark} = useSelector(state => state.reducerTheme)
 
   return (
     <div className="min-h-[70vh] w-full ">
       <Welcome />
-      <div className="relative flex flex-col-reverse md:flex-row md:items-center w-full h-[85vh] items-center bg-gradient-to-b from-[#5D3EF0] to-[#D13EF0]">
+      <div className={`relative flex flex-col-reverse md:flex-row md:items-center w-full h-[85vh] items-center ${dark ? "bg-black": "bg-slate-300"}`}>
         <div className="h-[35%] w-full md:w-1/2 md:h-full md:flex md:items-center z-10 mt-4">
-          <h1 className="text-white mt-5  mx-4 md:mt-5 md:text-2xl font-bold">
+          <h1 className={`${dark ? "text-white": "text-black"} mt-5  mx-4 md:mt-5 md:text-2xl font-bold`}>
             Dive into the Urban Magic and Discover the Most Fascinating Cities
             in the World! 
             <span>
               <NavLink
-                className={"text-[#FFD700]  mx-2 hover:text-[#FF7F50] rounded-lg"}
+                className={"text-blue-600  mx-2 hover:text-blue-900 rounded-lg"}
                 to={"/cities"}
               >
                 Click here
               </NavLink>
             </span>
-            to explore and be amazed by their charms
+            to explore and be amazed by their charms.
           </h1>
         </div>
         <div className="z-10">
-          <p className="text-2xl text-white text-center ">Popular My tineraries</p>
+          <p className={`text-2xl font-semibold text-center ${dark ? "text-white": "text-black"}`}>Popular My tineraries</p>
           <div className="h-[42vh] w-[100vw] p-3 md:w-[48vw] md:h-[70vh] relative">
             <Carrusel slider={sliderCarrusel} />
           </div>

@@ -8,8 +8,8 @@ export default {
     extend: {
       keyframes:{
         moveplain:{
-          '0%':{left:'-30%'},
-          '100%':{left:'30%'}
+          '0%':{transform:'translateX(-100%)'},
+          '100%':{transform:'translateX(100%)'}
         },
         moveleft:{
           '0%': {transform:'translateX(0%)'},
@@ -17,7 +17,7 @@ export default {
         },
         moverigth:{
           '0%': {transform:'translateX(-100%)'},
-          '100%':{transform:'translateX(0%)'}
+          '100%':{transform:'translateX(30%)'}
         },
         moveDown:{
           '0%': {top:'-64px', opacity:0},
@@ -26,7 +26,7 @@ export default {
         }
       },
       animation:{
-        moveplain:'moveplain 1s forwards linear',
+        moveplain:'moveplain 3s forwards linear',
         moveleft: 'moveleft 1s forwards linear',
         moverigth: 'moverigth 1s forwards linear',
         moveDown: 'moveDown 0.5s forwards linear'

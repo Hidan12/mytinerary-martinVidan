@@ -11,7 +11,7 @@
         @apply grid grid-rows-2 grid-cols-2 overflow-hidden w-full h-full animate-moverigth
     }
     .conteiner-card{
-        @apply  relative overflow-hidden border-2 border-transparent
+        @apply  relative overflow-hidden border-2 hover:border-blue-700 border-transparent
     }
     .conteiner-card-img{
         @apply h-full transition-transform duration-300

@@ -9,10 +9,10 @@ const Transition = ({currentObjet, nextObjet, id, clickNext, clickBack})=>{
     }else{
         animation = "contain-cards-transition-Back"
     }
-    const unionoBject = [currentObjet, nextObjet]
+    const bindingObject = [currentObjet, nextObjet]
     return(
         <>
-          {unionoBject.map((c, index) => <CardCarrusel key={(id+index)}  data={c} clasStyle={animation} /> )}                
+          {bindingObject.map((c, index) => <CardCarrusel key={(id+index)}  data={c} clasStyle={animation} /> )}                
         </>
         
     )

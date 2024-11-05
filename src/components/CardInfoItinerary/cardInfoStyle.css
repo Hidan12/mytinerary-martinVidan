@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components{
+    .conteiner-card-itinerary{
+        @apply w-[90%] h-[80vh] lg:h-[75vh] rounded-xl bg-white overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-700 hover:border-blue-700 hover:border-2
+    }
+    .photo-itinerary{
+        @apply w-full h-full object-cover rounded-t-lg
+    }
+    .photo-user-itinerary{
+        @apply ms-[60%] mt-2 md:ms-[68%] w-[15vw] h-[15vw] sm:w-[8vw] sm:h-[8vw] md:w-[4vw] md:h-[4vw] rounded-full object-cover
+    }
+    .contein-itinerary-plain{
+        @apply absolute top-[34%] w-full flex -translate-x-[100%]
+    }
+}
