@@ -4,7 +4,8 @@ import './cardInfoStyle.css'
 
 export const CardInfoItinerary = ({itinerary, handlerClickActivity}) =>{
     const dispatch = useDispatch()
-
+    console.log(itinerary);
+    
     let cost = new Array(itinerary.price).fill(
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-cash w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" viewBox="0 0 16 16">
             <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
@@ -19,7 +20,7 @@ export const CardInfoItinerary = ({itinerary, handlerClickActivity}) =>{
                     <div className="">
                         <p className="p-2 font-semibold bg-black/50 rounded-tl-lg text-white">{itinerary.nameItinerary}</p>
                     </div>
-                    <img src={itinerary.photoUser} className=" photo-user-itinerary" alt={itinerary.nameUser} />
+                    <img src={itinerary.user.photo} className=" photo-user-itinerary" alt={itinerary.nameUser} />
                 </div>
             </div>
             <div className="w-full h-1/2 grid grid-cols-2  relative">

@@ -21,17 +21,22 @@ const NoItinerary = ({city})=>{
 
 
 const Detail = () =>{
+    const location = useLocation()
+    const NoImg = "https://concepto.de/wp-content/uploads/2018/08/Londres-e1533855310803.jpg"
     const {dark} = useSelector(state => state.reducerTheme)
     const {itineraries, loading} = useSelector(state => state.reducerItinerary)
     const [clickActivity, setClickActivity] = useState(false)
-    
+    const [imgSrc, setImgSrc] = useState(location.state.imgCity)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const location = useLocation()
 
     useEffect(()=>{
         dispatch(setItineraries(location.state._id))
     },[])
+    
+    const handlerErrorImg = ()=>{
+        setImgSrc(NoImg)
+    }
 
     const handlerNavigate = ()=>{
         navigate(-1)
@@ -45,7 +50,7 @@ const Detail = () =>{
     return (
         <div className={`min-h-[70vh] ${dark ? "bg-black": "bg-slate-300"}`}>
             <div className="w-full h-[85vh] relative">
-                <img className="w-full h-full object-cover object-center" src={location.state.imgCity}  alt="" />
+                <img className="w-full h-full object-cover object-center" src={imgSrc} onError={()=>handlerErrorImg()}  alt="" />
                 <div className="absolute top-0 w-full h-full flex flex-col justify-around items-center">
                     <p className="text-center font-bold md:text-3xl text-white bg-black/50 p-3 rounded-xl">{location.state.cityName}</p>
                     <p className="w-[70%] md:w-[50%] text-center font-bold md:text-2xl text-white bg-black/50 p-3 rounded-xl">{location.state.description}</p>

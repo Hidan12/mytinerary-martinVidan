@@ -4,7 +4,7 @@ const initialState = {
     loading: true,
     cities: [],
     error: "",
-    search: []
+    search: ""
 }
 
 const cityReducer = createReducer(initialState, (builder)=>{

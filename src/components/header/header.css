@@ -4,10 +4,10 @@
 
 @layer components{
     .container-header{
-        @apply sticky top-0 z-40 grid grid-cols-2 items-center  min-h-[15vh] bg-blue-800
+        @apply sticky top-0 z-40 grid grid-cols-3 items-center  min-h-[15vh] bg-blue-800
     }
     .drop-down-container{
-        @apply bg-slate-300 absolute animate-moveDown right-0 -z-50 w-[30vw] min-h-[10vh] flex flex-col
+        @apply bg-slate-300 absolute animate-moveDown right-0 -z-50 w-[40vw] min-h-[10vh] flex flex-col justify-center
     }
     .burger-container{
         @apply w-full h-full flex justify-end items-center

@@ -1,17 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { searchCity } from '../store/actions/cityActions'
+import { useState } from 'react'
 
 
 const Card = ({city})=>{
     const navigate = useNavigate()
-    const NoImg = "https://cdn.getyourguide.com/img/fallback/tour.png/99.png"
+    const [imgSrc, setImgSrc] = useState(city.imgCity)
+    const NoImg = "https://concepto.de/wp-content/uploads/2018/08/Londres-e1533855310803.jpg"
     const handlerNavigate = ()=>{
         navigate("/detail", {state:city})
     }
+    const handlerErrorImg = ()=>{
+        setImgSrc(NoImg)
+    }
     return(
         <div className='w-full h-[35vh] border border-blue-300 relative overflow-hidden group hover:shadow-blue-700 hover:shadow-[-1px_0px_39px_0px] hover:border-2 hover:border-blue-700'>
-            <img src={city.imgCity || NoImg} className='w-full rounded-2xl h-full object-cover group-hover:scale-125 transition-transform duration-300' alt="" />
+            <img src={imgSrc} onError={()=> handlerErrorImg()} className='w-full rounded-2xl h-full object-cover group-hover:scale-125 transition-transform duration-300' alt="" />
             <p className=' absolute ms-2 top-2 bg-black/50 text-white p-2 rounded-lg'>📍 {city.cityName}</p>
             <div className=' absolute bottom-2 w-full flex justify-center'>
                 <button className='p-2 text-white rounded-lg bg-blue-800/70 hover:bg-blue-800' onClick={()=> handlerNavigate()}>
@@ -53,7 +58,7 @@ const Cities = ()=>{
             <div className='flex w-full justify-center items-center py-4'>
                 {!loading ?              
                     <div className={`w-[90%] ${cities.length > 0 ? "grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-5": "" }`}>
-                        { cities.length > 0 ? cities.map(c => <Card key={c.cityName} city={c}/>)
+                        { cities.length > 0 ? cities.map((c, index) => <Card key={c.cityName+index} city={c}/>)
                             : 
                             <p className='text-center font-bold text-2xl text-white'>The city you were looking for was not found</p>
                         

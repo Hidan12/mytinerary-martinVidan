@@ -22,7 +22,7 @@ export default {
         moveDown:{
           '0%': {top:'-64px', opacity:0},
           '60%': {opacity:0.1},
-          '100%':{top:'0px', opacity:1}
+          '100%':{top:'15vh', opacity:1}
         }
       },
       animation:{
