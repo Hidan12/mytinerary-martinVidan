@@ -8,8 +8,6 @@ const signIn = createAsyncThunk("SIGN_IN", async (user, {rejectWithValue})=>{
         return sign.data
     } catch (error) {
         if (error.response && error.response.data) {
-            console.log("eror de axios");
-            
             return rejectWithValue(error.response.data) 
         }
         return error

@@ -16,8 +16,6 @@ const signInReducer = createReducer(initialState, (builder)=>{
         state.error = false
         state.errorField = []
         state.user = {}
-        console.log("estado de loading", state.loading);
-        
     })
     .addCase(signIn.fulfilled, (state, action)=>{
         state.loading = false
@@ -29,16 +27,12 @@ const signInReducer = createReducer(initialState, (builder)=>{
     })
     .addCase(signIn.rejected, (state, action)=>{
         if (action.payload && action.payload.message){
-            console.log("entro al if");
-            
             state.errorField = action.payload.message
         }
         state.loading = false
         state.token = ""
         state.error = true
         state.user = {}
-        console.log("estado de error", state.error);
-        
     })
     .addCase(setUser, (state, action)=>{
         state.loading = false

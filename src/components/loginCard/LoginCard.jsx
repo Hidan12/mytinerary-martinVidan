@@ -40,7 +40,6 @@ const LoginCard = ({handlerLoginButon})=>{
 
     useEffect(()=>{
         if (login && !user.mail && !loading ) {
-            console.log(error);
             dispatch(signIn({mail: mail, password: password}))
             handlerlogin()
         }
