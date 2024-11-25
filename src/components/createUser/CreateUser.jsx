@@ -80,7 +80,7 @@ const CardCreateUser = ({data}) =>{
             <InputLabel text={"Password"} id={"password"} handler={handlerPassword}/>
             {errorField && errorField.length > 0 && errorField.some(er => er.hasOwnProperty("password")) && (<p className="text-white">{errorField.map(er => er.password )}</p>) }
             <InputLabel text={"Photo Link"} id={"photoLink"} handler={handlerPhoto}/>
-            {errorField && errorField.length > 0 && errorField.some(er => er.hasOwnProperty("photo")) && (<p className="text-white">{errorField.map(er => er.ph )}</p>) }
+            {errorField && errorField.length > 0 && errorField.some(er => er.photo )&& (<p className="text-white">{errorField.map(er => er.photo )}</p>) }
             {errorCreate ? <p className="text-red-500">Error creating user, check your data</p>:""}
             <button type="submit"  className="p-2 rounded-lg font-bold bg-slate-50 hover:bg-slate-300">Create</button>            
         </form>
@@ -97,7 +97,6 @@ const CreateUserModal = ()=>{
     const handlerCreate = ()=>{
         window.location.href = "http://localhost:8080/api/login/signin/google"
     }
-    
     return(
         <div className=" w-full py-5  top-[30vh] flex justify-center">
             <div className={`w-[80vw] rounded-xl sm:w-[60vw] md:w-[30vw] flex flex-col items-center justify-center gap-3 ${dark ? "bg-blue-800": "bg-[#1B8AE4]"}` } >
