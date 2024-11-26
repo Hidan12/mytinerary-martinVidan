@@ -103,7 +103,7 @@ const CreateUserModal = ()=>{
                 <div className="flex justify-center items-center pt-3">
                     <p className="font-bold text-white">CREATE USER</p>
                 </div>
-                {errorField && errorField.some(er => er.registeredMail) && (<p className="text-white font-semibold">Registered mail</p>)}
+                {errorField && errorField.some(er => er.registeredMail) && (<p className="text-white font-semibold">The email is already registered</p>)}
                  <CardCreateUser/>
                 <div className="w-full flex justify-center items-center">
                     <div className="w-[45%] border-t-2 "></div>

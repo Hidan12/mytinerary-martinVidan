@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { signIn } from "../../store/actions/signIn"
 import { InputLabel } from "../inputAndLabel/InputLabel"
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -44,7 +45,7 @@ const LoginCard = ({handlerLoginButon})=>{
             handlerlogin()
         }
         if (!loading && user.mail) {
-            handlerLoginButon()  
+            handlerLoginButon()
         }
     },[login, user])
     return(

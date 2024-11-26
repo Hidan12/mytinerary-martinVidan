@@ -88,6 +88,8 @@ const DropdownMenu = ({handleClickButton, handlerLogin})=>{
 
 const ButtonLogin = ({ handlerLogin, handlersignOut})=>{
     const {user, token} = useSelector(state => state.loginReducer)
+    console.log(user.name, "header--------------------------");
+    
     return (
         <>
         {

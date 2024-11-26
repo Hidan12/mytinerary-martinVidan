@@ -82,9 +82,7 @@ const signInReducer = createReducer(initialState, (builder)=>{
     }) 
     .addCase(clearSignIn, (state, action)=>{
         state.loading = false
-        state.token = ""
         state.error = false
-        state.user = {}
         state.errorField = []
     })
 })
