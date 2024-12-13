@@ -31,7 +31,7 @@ const LoginCard = ({handlerLoginButon})=>{
     
     useEffect(()=>{
         const test = async()=>{
-            window.location.href = "http://localhost:8080/api/login/signin/google"
+            window.location.href = "https://mytinerary-back-martinvidan.onrender.com/api/login/signin/google"
         }
         if (clickByGoogle) {
             test()

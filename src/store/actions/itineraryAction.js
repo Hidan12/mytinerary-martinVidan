@@ -1,9 +1,9 @@
 import { createAction,  createAsyncThunk} from "@reduxjs/toolkit"
 import axios from "axios"
-
+const url = "https://mytinerary-back-martinvidan.onrender.com/"
 export const setItineraries = createAsyncThunk("SET_ITINERARIES", async(city)=>{
     try {
-        const itineraries = await axios.get(`http://localhost:8080/api/itinerary/itinerariesByCity?city=${city}`)        
+        const itineraries = await axios.get(`${url}api/itinerary/itinerariesByCity?city=${city}`)        
         return itineraries.data.itineraries
     } catch (error) {
         console.log(error)

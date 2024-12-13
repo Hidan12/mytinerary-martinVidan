@@ -7,6 +7,7 @@ import { setCity } from '../../store/actions/cityActions.js'
 import { setTheme } from '../../store/actions/themeAction.js'
 import { LoginCard } from '../loginCard/LoginCard.jsx'
 import { clearSignIn, signOut, verifyToken } from '../../store/actions/signIn.js'
+import Swal from 'sweetalert2'
 const Logo = ()=>{
     return (
         <div className='flex items-center'>
@@ -88,7 +89,6 @@ const DropdownMenu = ({handleClickButton, handlerLogin})=>{
 
 const ButtonLogin = ({ handlerLogin, handlersignOut})=>{
     const {user, token} = useSelector(state => state.loginReducer)
-    console.log(user.name, "header--------------------------");
     
     return (
         <>
@@ -145,7 +145,21 @@ const Header = () =>{
       }, []);
 
 
-
+    const alertLogOut = (token)=>{
+        Swal.fire({
+            background: "#1e40af",
+            color: "#ffffff",
+            imageUrl:"https://www.lavanguardia.com/files/og_thumbnail/uploads/2018/06/15/5fa43d71a111f.jpeg",
+            text: "Are you sure you want to log out?",
+            showDenyButton: true,
+            confirmButtonText: "Log out",
+            denyButtonText: `Cancel`
+        }).then((result)=>{
+            if (result.isConfirmed) {
+                dispatch(signOut(token))
+              }
+        })
+    }
 
 
     useEffect(() => {
@@ -167,8 +181,7 @@ const Header = () =>{
         setButtonBurguer(cl => cl = !cl)
     }
     const handlersignOut = (token)=>{
-        dispatch(signOut(token))
-        alert('You have been logged out successfully!')
+        alertLogOut(token)
     }
     const handlerLogin = ()=>{
         if(clickLogin){
